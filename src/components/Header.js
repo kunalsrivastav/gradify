@@ -16,6 +16,7 @@ const Header = () => {
                     title="Go to Developer's Github Account"
                     className="header-github"
                     target="_blank"
+                    rel="noreferrer"
                 >
                     <i class="fa fa-github"></i>
                 </a>
