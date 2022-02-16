@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Redressed&display=swap");
+
+.header {
+    background-color: #212124;
+    height: 60px;
+    width: 100%;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.header-logo {
+    text-decoration: none;
+    display: inline-flex;
+}
+
+.logo {
+    font-family: "Redressed", cursive;
+    float: left;
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.logo .l1 {
+    color: #f1f1f1;
+}
+
+.logo .l2 {
+    color: #ff4500;
+}
+
+.github-redirect {
+    margin-right: 25px;
+    float: right;
+}
+
+.header-github {
+    text-decoration: none;
+}
+
+.header-github i {
+    background-color: #212124;
+    background-image: linear-gradient(to bottom, #f1f1f1, #ff4500);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    font-size: 50px;
+}
