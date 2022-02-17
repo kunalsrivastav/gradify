@@ -28,6 +28,9 @@
 }
 
 .card-part2 span {
+    border: 1px solid #212124;
+    padding: 8px;
+    border-radius: 12px;
     background-color: #f1f1f1;
     background-size: 100%;
     -webkit-background-clip: text;

@@ -1,6 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+
 .content-body {
     justify-content: space-evenly;
     padding: 10px 0 0 0;
     display: flex;
     flex-wrap: wrap;
+}
+
+.button-box {
+    margin: 18px 0 16px 20px;
+}
+
+.button {
+    color: #ff4500;
+    background-color: #212124;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 12px;
+    font-family: "Ubuntu Mono", monospace;
+    border: 1px solid #ff4500;
+    cursor: pointer;
 }

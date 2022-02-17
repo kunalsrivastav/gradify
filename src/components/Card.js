@@ -14,7 +14,6 @@ const Card = (props) => {
             </div>
             <div className="card-part2">
                 <span
-                    title="Click to Copy"
                     style={{
                         backgroundImage: `linear-gradient(to right, ${props.color1}, ${props.color2})`,
                     }}
