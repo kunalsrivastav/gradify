@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import "./Content.css";
 
 const colorString = "0123456789abcdef";
-
+let timeOutDuration = 300000;
 let cards = [];
 
 const generateColors = () => {
@@ -29,11 +29,26 @@ generateCard();
 
 const Content = () => {
     const [colours, setColours] = useState(cards);
+    // const [currentDuration, setCurrentDuration] = useState(timeOutDuration);
+    // const refresh = useCallback(() => {
+    //     setTimeout(() => {
+    //         generateCard();
+    //         setTheState();
+    //         console.log("rendered");
+    //     }, timeOutDuration);
+    // }, [timeOutDuration]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            generateCard();
+            setTheState();
+            console.log("Render");
+        }, timeOutDuration);
+    });
 
     const setTheState = () => {
         setColours(cards);
     };
-
     return (
         <div>
             <div className="button-box">
@@ -45,6 +60,9 @@ const Content = () => {
                     }}
                 >
                     Click to Refresh the Gradients
+                </button>
+                <button className="button" style={{ marginLeft: "10px" }}>
+                    Click Here within {timeOutDuration / 1000} Seconds to stop Refreshing
                 </button>
             </div>
             <div className="content-body">
