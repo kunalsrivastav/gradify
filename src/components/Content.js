@@ -29,40 +29,43 @@ generateCard();
 
 const Content = () => {
     const [colours, setColours] = useState(cards);
-    // const [currentDuration, setCurrentDuration] = useState(timeOutDuration);
-    // const refresh = useCallback(() => {
-    //     setTimeout(() => {
-    //         generateCard();
-    //         setTheState();
-    //         console.log("rendered");
-    //     }, timeOutDuration);
-    // }, [timeOutDuration]);
+    const [timer, setTimer] = useState(timeOutDuration);
 
     useEffect(() => {
-        setTimeout(() => {
+        if (timer <= -1) {
+            setTimer(timeOutDuration);
             generateCard();
             setTheState();
-            console.log("Render");
-        }, timeOutDuration);
-    });
+        }
+        const interval = setInterval(() => {
+            setTimer((prev) => prev - 1000);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [timer]);
 
     const setTheState = () => {
         setColours(cards);
     };
+
+    const resetTimer = () => {
+        setTimer(timeOutDuration);
+    };
+
+    const refreshAll = () => {
+        setTimer(timeOutDuration);
+        generateCard();
+        setTheState();
+    };
+
     return (
         <div>
             <div className="button-box">
-                <button
-                    className="button"
-                    onClick={() => {
-                        generateCard();
-                        setTheState();
-                    }}
-                >
-                    Click to Refresh the Gradients
+                <button className="button refresh-button" onClick={refreshAll}>
+                    <i className="fa fa-refresh"></i> Refresh
                 </button>
-                <button className="button" style={{ marginLeft: "10px" }}>
-                    Click Here within {timeOutDuration / 1000} Seconds to stop Refreshing
+                <button className="button timer-button" onClick={() => resetTimer()}>
+                    Click Here within {timer / 1000} Seconds to stop Refreshing
                 </button>
             </div>
             <div className="content-body">
